@@ -25,7 +25,6 @@
  * file for complete information.
  */
 
-
 #include <assert.h>
 #ifdef HAVE_STDINT_H
 #include <stdint.h>
@@ -40,26 +39,23 @@
 
 #include "units.h"
 
+int main(int argc, char **argv) {
+  const char *ver;
+  struct iperf_test *test;
+  int sint, gint;
 
-int
-main(int argc, char **argv)
-{
-    const char *ver;
-    struct iperf_test *test;
-    int sint, gint;
+  ver = iperf_get_iperf_version();
+  assert(strcmp(ver, IPERF_VERSION) == 0);
 
-    ver = iperf_get_iperf_version();
-    assert(strcmp(ver, IPERF_VERSION) == 0);
+  test = iperf_new_test();
+  assert(test != NULL);
 
-    test = iperf_new_test();
-    assert(test != NULL);
+  iperf_defaults(test);
 
-    iperf_defaults(test);
+  sint = 10;
+  iperf_set_test_connect_timeout(test, sint);
+  gint = iperf_get_test_connect_timeout(test);
+  assert(sint == gint);
 
-    sint = 10;
-    iperf_set_test_connect_timeout(test, sint);
-    gint = iperf_get_test_connect_timeout(test);
-    assert(sint == gint);
-
-    return 0;
+  return 0;
 }

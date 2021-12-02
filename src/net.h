@@ -27,14 +27,21 @@
 #ifndef __NET_H
 #define __NET_H
 
-int timeout_connect(int s, const struct sockaddr *name, socklen_t namelen, int timeout);
-int create_socket(int domain, int proto, const char *local, const char *bind_dev, int local_port, const char *server, int port, struct addrinfo **server_res_out);
-int netdial(int domain, int proto, const char *local, const char *bind_dev, int local_port, const char *server, int port, int timeout);
-int netannounce(int domain, int proto, const char *local, const char *bind_dev, int port);
+int timeout_connect(int s, const struct sockaddr *name, socklen_t namelen,
+                    int timeout);
+int create_socket(int domain, int proto, const char *local,
+                  const char *bind_dev, int local_port, const char *server,
+                  int port, struct addrinfo **server_res_out);
+int netdial(int domain, int proto, const char *local, const char *bind_dev,
+            int local_port, const char *server, int port, int timeout);
+int netannounce(int domain, int proto, const char *local, const char *bind_dev,
+                int port);
 int Nread(int fd, char *buf, size_t count, int prot);
-int Nwrite(int fd, const char *buf, size_t count, int prot) /* __attribute__((hot)) */;
+int Nwrite(int fd, const char *buf, size_t count,
+           int prot) /* __attribute__((hot)) */;
 int has_sendfile(void);
-int Nsendfile(int fromfd, int tofd, const char *buf, size_t count) /* __attribute__((hot)) */;
+int Nsendfile(int fromfd, int tofd, const char *buf,
+              size_t count) /* __attribute__((hot)) */;
 int setnonblocking(int fd, int nonblocking);
 int getsockdomain(int sock);
 int parse_qos(const char *tos);

@@ -30,8 +30,8 @@
 #include <stdint.h>
 
 struct iperf_time {
-    uint32_t secs;
-    uint32_t usecs;
+  uint32_t secs;
+  uint32_t usecs;
 };
 
 int iperf_time_now(struct iperf_time *time1);
@@ -40,7 +40,8 @@ void iperf_time_add_usecs(struct iperf_time *time1, uint64_t usecs);
 
 int iperf_time_compare(struct iperf_time *time1, struct iperf_time *time2);
 
-int iperf_time_diff(struct iperf_time *time1, struct iperf_time *time2, struct iperf_time *diff);
+int iperf_time_diff(struct iperf_time *time1, struct iperf_time *time2,
+                    struct iperf_time *diff);
 
 uint64_t iperf_time_in_usecs(struct iperf_time *time);
 

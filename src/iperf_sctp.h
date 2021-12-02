@@ -24,8 +24,8 @@
  * This code is distributed under a BSD style license, see the LICENSE
  * file for complete information.
  */
-#ifndef        IPERF_SCTP_H
-#define        IPERF_SCTP_H
+#ifndef IPERF_SCTP_H
+#define IPERF_SCTP_H
 
 /**
  * iperf_sctp_accept -- accepts a new SCTP connection
@@ -44,7 +44,6 @@ int iperf_sctp_accept(struct iperf_test *);
  */
 int iperf_sctp_recv(struct iperf_stream *);
 
-
 /**
  * iperf_sctp_send -- sends the client data for sctp
  * and the  Param/result message exchanges
@@ -52,7 +51,6 @@ int iperf_sctp_recv(struct iperf_stream *);
  *
  */
 int iperf_sctp_send(struct iperf_stream *);
-
 
 int iperf_sctp_listen(struct iperf_test *);
 
