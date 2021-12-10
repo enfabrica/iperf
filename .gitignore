@@ -5,6 +5,7 @@
 *.o
 *.orig
 *.Po
+*.swp
 /Makefile
 /autom4te.cache
 /config.log
@@ -30,3 +31,5 @@ examples/.libs
 examples/Makefile
 examples/mic
 examples/mis
+src/*.log
+src/*.trs
