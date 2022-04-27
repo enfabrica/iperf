@@ -50,7 +50,7 @@ None.
 
 ### Building ###
 
-    ./configure; make; make install
+    ./configure; make; cd src; gcc -g -Wall -g -o iperf3 iperf3-main.o  ./.libs/libiperf.a -static -lm; cd ..; sudo make install
 
 (Note: If configure fails, try running `./bootstrap.sh` first)
 
