@@ -50,7 +50,7 @@ None.
 
 ### Building ###
 
-    ./configure; make; make install
+    ./configure && make && sudo make install && sudo ldconfig
 
 (Note: If configure fails, try running `./bootstrap.sh` first)
 
