@@ -76,6 +76,11 @@ These flags include:
     -Z, --zerocopy            use a 'zero copy' sendfile() method of sending data
     -A, --affinity n/n,m      set CPU affinity
 
+We are adding support for the following flags:
+
+    --zc_api                  Tx-side zero-copy, use the Linux Tx ZC socket API (MSG_ZEROCOPY)
+    --rx_drop                 Rx-side zero-copy emulation, use MSG_TRUNC to avoid memcpy to userspace
+
 Bug Reports
 -----------
 
