@@ -1,3 +1,16 @@
+This is a fork of the [iperf3 measurement tool](https://github.com/esnet/iperf/tree/169b0d9b4e360646b8562d3395d94cc6c609e799), patched by Enfabrica.
+This fork was used in the OSDI'24 paper "High-throughput and Flexible Host Networking for Accelerated Computing" (Section 2.2, proof-of-concept experiment).
+
+The patch adds support for sender-side zero-copy using the MSG_ZEROCOPY Linux patch,
+and adds support for receiver-side zero-copy emulation by trancating payloads to avoid the memcpy from kernel to user space.
+
+We are adding support for the following flags:
+
+    --zc_api                  Tx-side zero-copy, use the Linux Tx ZC socket API (MSG_ZEROCOPY)
+    --rx_drop                 Rx-side zero-copy emulation, use MSG_TRUNC to avoid memcpy to userspace
+
+The original README follows below:
+
 iperf3:  A TCP, UDP, and SCTP network bandwidth measurement tool
 ================================================================
 
@@ -75,11 +88,6 @@ These flags include:
 
     -Z, --zerocopy            use a 'zero copy' sendfile() method of sending data
     -A, --affinity n/n,m      set CPU affinity
-
-We are adding support for the following flags:
-
-    --zc_api                  Tx-side zero-copy, use the Linux Tx ZC socket API (MSG_ZEROCOPY)
-    --rx_drop                 Rx-side zero-copy emulation, use MSG_TRUNC to avoid memcpy to userspace
 
 Bug Reports
 -----------
